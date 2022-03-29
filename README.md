@@ -5,9 +5,9 @@ Tarkoituksena on tehdä musanörttien keskustelufoorumi. Sovellukseen on taltioi
 
 Tarvittavia taulukoita (suluissa hahmotelma sarakkeista):
 
-Releases (id, name, genre, performer, release_date, publisher)
-Tracks (name, release_id)
-Personnel (id, name, role, release_id)
-Reviews (id, reviewer_id, reviewee_id, score)
-Comments (id, release_id, commenter_id, timestamp, reply_status)
-Users (id, name)
+- Releases (id, name, genre, performer, release_date, publisher)
+- Tracks (name, release_id)
+- Personnel (id, name, role, release_id)
+- Reviews (id, reviewer_id, reviewee_id, score)
+- Comments (id, release_id, commenter_id, timestamp, reply_status)
+- Users (id, name)
