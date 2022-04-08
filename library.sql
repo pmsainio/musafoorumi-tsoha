@@ -1,68 +1,117 @@
-INSERT INTO Releases (id, name, genre, performer, year) VALUES (1, "Year of the Car", "pop", "Al Stewart", 1976)
-INSERT INTO Releases (id, name, genre, performer, year) VALUES (2, "Tales of Mystery and Imagination", "rock", "The Alan Parsons Project", 1976)
-INSERT INTO Releases (id, name, genre, performer, year) VALUES (3, "The Kick Inside", "pop", "Kate Bush", 1978)
-INSERT INTO Releases (id, name, genre, performer, year) VALUES (4, "From the Album of the Same Name", "rock", "Pilot", 1974)
+INSERT INTO Releases (id, name, genre, performer, year) VALUES (1, 'Year of the Cat', 'pop', 'Al Stewart', 1976);
+INSERT INTO Releases (id, name, genre, performer, year) VALUES (2, 'Tales of Mystery and Imagination', 'rock', 'The Alan Parsons Project', 1976);
+INSERT INTO Releases (id, name, genre, performer, year) VALUES (3, 'The Kick Inside', 'pop', 'Kate Bush', 1978);
+INSERT INTO Releases (id, name, genre, performer, year) VALUES (4, 'From the Album of the Same Name', 'rock', 'Pilot', 1974);
 
-INSERT INTO Personnel (name, role, release_id) VALUES ("Al Stewart", "vocals, guitar", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Peter White", "guitar, keyboards", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Tim Renwick", "guitar", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Peter Wood", "keyboards", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Don Lobster", "keyboards", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("George Ford", "bass guitar", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Stuart Elliot", "drums, percussion, backing vocals", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Bobby Price", "violin", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Marion Driscoll", "triangle", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Phil Kenzie", "alto saxophone", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("David Pack", "backing vocals", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("John Perry", "backing vocals", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Tony Rivers", "backing vocals", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Graham Smith", "harmonica", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Andrew Powell", "string arranger", 1)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Alan Parsons", "producer", 1)
+INSERT INTO Personnel (name, role, release_id) VALUES ('Al Stewart', 'vocals, guitar', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Peter White', 'guitar, keyboards', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Tim Renwick', 'guitar', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Peter Wood', 'keyboards', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Don Lobster', 'keyboards', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('George Ford', 'bass guitar', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Stuart Elliot', 'drums, percussion, backing vocals', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Bobby Price', 'violin', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Marion Driscoll', 'triangle', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Phil Kenzie', 'alto saxophone', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('David Pack', 'backing vocals', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('John Perry', 'backing vocals', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Tony Rivers', 'backing vocals', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Graham Smith', 'harmonica', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Andrew Powell', 'string arranger', 1);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Alan Parsons', 'producer', 1);
 
-INSERT INTO Personnel (name, role, release_id) VALUES ("Alan Parsons", "keyboards, guitars, backing vocals, producer", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Eric Woolfson", "keyboards, vocals", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Ian Bairnson", "guitars", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("John Leach", "combalom, kantele", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Billy Lyall", "Keyboards, drums, glockenspiel", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Les Hurdle", "bass guitar", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Francis Monkman", "keyboards", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Christopher North", "keyboards", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("David Pack", "guitars", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("David Paton", "guitars, bass", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Kevin Peek", "guitars", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Joe Puerta", "bass guitar", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Daryl Runswick", "double bass", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Stuart Tosh", "drums, percussion", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Arthur Brown", "vocals", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("John Miles", "vocals", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Jack Harris", "backing vocals", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Terry Sylvester", "backing vocals", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Leonard Whiting", "vocals", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Smokey Parsons", "vocals", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("David Katz", "violin, orchestra leader", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Andrew Powell", "orchestral and choir arrangements", 2)
-INSERT INTO Personnel (name, role, release_id) VALUES ("The English Chorale", "choir", 2)
+INSERT INTO Personnel (name, role, release_id) VALUES ('Alan Parsons', 'keyboards, guitars, backing vocals, producer', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Eric Woolfson', 'keyboards, vocals', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Ian Bairnson', 'guitars', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('John Leach', 'cimbalom, kantele', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Billy Lyall', 'Keyboards, drums, glockenspiel', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Les Hurdle', 'bass guitar', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Francis Monkman', 'keyboards', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Christopher North', 'keyboards', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('David Pack', 'guitars', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('David Paton', 'guitars, bass', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Kevin Peek', 'guitars', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Joe Puerta', 'bass guitar', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Daryl Runswick', 'double bass', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Stuart Tosh', 'drums, percussion', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Arthur Brown', 'vocals', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('John Miles', 'vocals', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Jack Harris', 'backing vocals', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Terry Sylvester', 'backing vocals', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Leonard Whiting', 'vocals', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Smokey Parsons', 'vocals', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('David Katz', 'violin, orchestra leader', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Andrew Powell', 'orchestral and choir arrangements', 2);
+INSERT INTO Personnel (name, role, release_id) VALUES ('The English Chorale', 'choir', 2);
 
-INSERT INTO Personnel (name, role, release_id) VALUES ("Kate Bush", "vocals, piano", 3)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Andrew Powell", "keyboards, bass guitar, producer", 3)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Duncan Mackay", "keyboards", 3)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Ian Bairnson", "guitars, backing vocals", 3)
-INSERT INTO Personnel (name, role, release_id) VALUES ("David Paton", "bass guitar, acoustic guitar, backing vocals", 3)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Stuart Elliot", "drums, percussion", 3)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Alan Skidmore", "tenor saxophone", 3)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Paul Keogh", "guitars", 3)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Alan Parker", "acoustic guitar", 3)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Bruce Lynch", "bass guitar", 3)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Barry de Souza", "drums", 3)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Morris Pert", "percussion", 3)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Paddy Bush", "mandolin, backing vocals", 3)
+INSERT INTO Personnel (name, role, release_id) VALUES ('Kate Bush', 'vocals, piano', 3);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Andrew Powell', 'keyboards, bass guitar, producer', 3);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Duncan Mackay', 'keyboards', 3);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Ian Bairnson', 'guitars, backing vocals', 3);
+INSERT INTO Personnel (name, role, release_id) VALUES ('David Paton', 'bass guitar, acoustic guitar, backing vocals', 3);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Stuart Elliot', 'drums, percussion', 3);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Alan Skidmore', 'tenor saxophone', 3);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Paul Keogh', 'guitars', 3);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Alan Parker', 'acoustic guitar', 3);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Bruce Lynch', 'bass guitar', 3);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Barry de Souza', 'drums', 3);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Morris Pert', 'percussion', 3);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Paddy Bush', 'mandolin, backing vocals', 3);
 
-INSERT INTO Personnel (name, role, release_id) VALUES ("David Paton", "vocals, bass", 4)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Billy Lyall", "keyboards, backing vocals", 4)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Stuart Tosh", "drums, backing vocals", 4)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Ian Bairnson", "guitar", 4)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Nick Heath", "backing vocals", 4)
-INSERT INTO Personnel (name, role, release_id) VALUES ("David Mason", "trumpet", 4)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Richard Hewson", "orchestral arrangements", 4)
-INSERT INTO Personnel (name, role, release_id) VALUES ("Alan Parsons", "producer", 4)
+INSERT INTO Personnel (name, role, release_id) VALUES ('David Paton', 'vocals, bass', 4);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Billy Lyall', 'keyboards, backing vocals', 4);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Stuart Tosh', 'drums, backing vocals', 4);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Ian Bairnson', 'guitar', 4);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Nick Heath', 'backing vocals', 4);
+INSERT INTO Personnel (name, role, release_id) VALUES ('David Mason', 'trumpet', 4);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Richard Hewson', 'orchestral arrangements', 4);
+INSERT INTO Personnel (name, role, release_id) VALUES ('Alan Parsons', 'producer', 4);
+
+INSERT INTO Tracks (listing, name, release_id) VALUES (1, 'Lord Grenville', 1);
+INSERT INTO Tracks (listing, name, release_id) VALUES (2, 'On the Border', 1);
+INSERT INTO Tracks (listing, name, release_id) VALUES (3, 'Midas Shadow', 1);
+INSERT INTO Tracks (listing, name, release_id) VALUES (4, 'Sand in Your Shoes', 1);
+INSERT INTO Tracks (listing, name, release_id) VALUES (5, 'If it Doesnt Come Naturally, Leave it', 1);
+INSERT INTO Tracks (listing, name, release_id) VALUES (6, 'Flying Sorcery', 1);
+INSERT INTO Tracks (listing, name, release_id) VALUES (7, 'Broadway Hotel', 1);
+INSERT INTO Tracks (listing, name, release_id) VALUES (8, 'One Stage Before', 1);
+INSERT INTO Tracks (listing, name, release_id) VALUES (9, 'Year of the Cat', 1);
+
+INSERT INTO Tracks (listing, name, release_id) VALUES (1, 'A Dream Within a Dream', 2);
+INSERT INTO Tracks (listing, name, release_id) VALUES (2, 'The Raven', 2);
+INSERT INTO Tracks (listing, name, release_id) VALUES (3, 'The Tell-Tale Heart', 2);
+INSERT INTO Tracks (listing, name, release_id) VALUES (4, 'The Cask of Amontillado', 2);
+INSERT INTO Tracks (listing, name, release_id) VALUES (5, '(The System of) Dr. Tarr and Professor Fether)', 2);
+INSERT INTO Tracks (listing, name, release_id) VALUES (6, 'The Fall of the House of Usher: Prelude', 2);
+INSERT INTO Tracks (listing, name, release_id) VALUES (7, 'The Fall of the House of Usher: Arrival', 2);
+INSERT INTO Tracks (listing, name, release_id) VALUES (8, 'The Fall of the House of Usher: Intermezzo', 2);
+INSERT INTO Tracks (listing, name, release_id) VALUES (9, 'The Fall of the House of Usher: Pavane', 2);
+INSERT INTO Tracks (listing, name, release_id) VALUES (10, 'The Fall of the House of Usher: Fall', 2);
+INSERT INTO Tracks (listing, name, release_id) VALUES (11, 'To One in Paradise', 2);
+
+INSERT INTO Tracks (listing, name, release_id) VALUES (1, 'Moving', 3);
+INSERT INTO Tracks (listing, name, release_id) VALUES (2, 'The Saxophone Song', 3);
+INSERT INTO Tracks (listing, name, release_id) VALUES (3, 'Strange Phenomena', 3);
+INSERT INTO Tracks (listing, name, release_id) VALUES (4, 'Kite', 3);
+INSERT INTO Tracks (listing, name, release_id) VALUES (5, 'The Man with the Child in His Eyes', 3);
+INSERT INTO Tracks (listing, name, release_id) VALUES (6, 'Wuthering Heights', 3);
+INSERT INTO Tracks (listing, name, release_id) VALUES (7, 'James and the Cold Gun', 3);
+INSERT INTO Tracks (listing, name, release_id) VALUES (8, 'Feel It', 3);
+INSERT INTO Tracks (listing, name, release_id) VALUES (9, 'Oh to Be in Love', 3);
+INSERT INTO Tracks (listing, name, release_id) VALUES (10, 'LAmour Looks Something Like You', 3);
+INSERT INTO Tracks (listing, name, release_id) VALUES (11, 'Them Heavy People', 3);
+INSERT INTO Tracks (listing, name, release_id) VALUES (12, 'Room for the Life', 3);
+INSERT INTO Tracks (listing, name, release_id) VALUES (13, 'The Kick Inside', 3);
+
+INSERT INTO Tracks (listing, name, release_id) VALUES (1, 'Just a Smile', 4);
+INSERT INTO Tracks (listing, name, release_id) VALUES (2, 'Magic', 4);
+INSERT INTO Tracks (listing, name, release_id) VALUES (3, 'Lucky for Some', 4);
+INSERT INTO Tracks (listing, name, release_id) VALUES (4, 'Girl Next Door', 4);
+INSERT INTO Tracks (listing, name, release_id) VALUES (5, 'Lovely Lady Smile', 4);
+INSERT INTO Tracks (listing, name, release_id) VALUES (6, 'Sooner or Later', 4);
+INSERT INTO Tracks (listing, name, release_id) VALUES (7, 'Dont Speak Loudly', 4);
+INSERT INTO Tracks (listing, name, release_id) VALUES (8, 'Over the Moon', 4);
+INSERT INTO Tracks (listing, name, release_id) VALUES (9, 'Never Give Up', 4);
+INSERT INTO Tracks (listing, name, release_id) VALUES (10, 'High Into the Sky', 4);
+INSERT INTO Tracks (listing, name, release_id) VALUES (11, 'Auntie Iris', 4);
+INSERT INTO Tracks (listing, name, release_id) VALUES (12, 'Sky Blue', 4);
