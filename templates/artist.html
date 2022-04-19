@@ -1,0 +1,13 @@
+<title>{{artist}}</title>
+
+<b>{{artist}}</b>
+
+<ul>
+{% for release in releases %}
+<li> <a href="/release/{{release.name}}">{{release.name}}</a>
+{% endfor %}
+</li>
+
+<hr>
+
+<a href="/">Etusivulle</a>

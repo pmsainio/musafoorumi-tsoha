@@ -1,0 +1,24 @@
+<title>{{release}}</title>
+<br>
+<b>{{release}}</b>
+<br> 
+
+{% for release in releases %}
+<a href="/artist/{{release.performer}}">{{release.performer}}</a>
+{% endfor %}
+<br> <br>
+Raidat:
+<hr>
+{% for track in tracks %}
+{{track.listing}}. {{track.name}}<br>
+{% endfor %}
+<br>
+Henkilöstö:
+<hr>
+{% for person in personnel %}
+<li> <a href="/contributor/{{person.name}}">{{person.name}}</a>: {{person.role}}
+{% endfor %}
+</li>
+
+    <hr>
+<a href="/">Etusivulle</a>

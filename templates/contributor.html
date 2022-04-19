@@ -1,0 +1,14 @@
+<title>{{person}}</title>
+
+<b>{{person}}</b>
+<br> <br>
+Osallistumiset:
+<ul>
+{% for p in personnel %}
+<li> <a href="/release/{{p.name}}">{{p.name}}</a> ({{p.role}})
+{% endfor %}
+</li>
+
+<hr>
+
+<a href="/">Etusivulle</a>

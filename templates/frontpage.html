@@ -1,0 +1,32 @@
+<title>Etusivu</title>
+
+<b>Tervetuloa!</b>
+
+<form action="/result" method="GET">
+    Hae:
+    <input type="text" name="search">
+    <br>
+    <input type="submit" value="Hae">
+</form>
+
+Esittäjät:
+
+{% for artist in artists %}
+<br>
+<a href="/artist/{{artist.performer}}">{{artist.performer}}</a>
+{% endfor %}
+<hr>
+
+Julkaisut:
+
+{% for release in releases %}
+<br>
+<a href="/release/{{release.name}}">{{release.performer}} - {{release.name}}</a> ({{release.year}})
+{% endfor %}
+
+<hr>
+
+
+
+
+

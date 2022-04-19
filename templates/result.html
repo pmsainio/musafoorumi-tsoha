@@ -1,0 +1,10 @@
+<title>Hakutulos</title>
+Tulokset haulla '{{search}}''
+<br>
+{% for result in results %}
+<br> <a href="/release/{{result.name}}">{{result.performer}} - {{result.name}}</a> ({{result.year}})
+<br>
+{% endfor %}
+<br> 
+<hr>
+<a href="/">Etusivulle</a>
