@@ -1,6 +1,8 @@
 from app import app
-from flask import render_template, request
+from flask import render_template, request, redirect, session
 from database import db
+from werkzeug.security import check_password_hash, generate_password_hash
+
 
 
 @app.route("/")
@@ -38,6 +40,26 @@ def artist(name):
 
 @app.route("/contributor/<name>")
 def contr(name):
-    sql = "SELECT r.name from releases r, personnel p WHERE p.name=:name and p.release_id IS r.id"
+    sql = "SELECT r.name, p.role from releases r, personnel p WHERE p.name=:name and p.release_id = r.id"
     personnel = db.session.execute(sql, {"name":name})
-    return render_template("contributor.html").fetchall
+    return render_template("contributor.html", person=name, personnel=personnel.fetchall())
+
+@app.route("/signup",methods=["POST"])
+def signup():
+    hash_value = generate_password_hash(password)
+    sql = "INSERT INTO users (username, password) VALUES (:username, :password)"
+    db.session.execute(sql, {"username":username, "password":hash_value})
+    db.session.commit()
+
+
+@app.route("/login",methods=["POST"])
+def login():
+    username = request.form["username"]
+    password = request.form["password"]
+    session["username"] = username
+    return redirect("/")
+
+@app.route("/logout")
+def logout():
+    del session["username"]
+    return redirect("/")
