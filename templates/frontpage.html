@@ -26,6 +26,14 @@ Julkaisut:
 
 <hr>
 
+{% if session.username %}
+<p>Olet kirjautunut nimellä {{ session.username }}</p>
+<a href="/logout">Kirjaudu ulos</a>
+{% else %}
+<a href="/register"> Luo tunnus</a>  tai <a href="/login">kirjaudu sisään</a>
+
+{% endif %}
+
 
 
 

@@ -19,6 +19,13 @@ Henkilöstö:
 <li> <a href="/contributor/{{person.name}}">{{person.name}}</a>: {{person.role}}
 {% endfor %}
 </li>
+<hr>
+{% if session.username %}
+<p>Olet kirjautunut nimellä {{ session.username }}</p>
+<a href="/logout">Kirjaudu ulos</a>
+{% else %}
+<a href="/register"> Luo tunnus</a>  tai <a href="/login">kirjaudu sisään</a> kommentoidaksesi
 
+{% endif %}
     <hr>
 <a href="/">Etusivulle</a>
