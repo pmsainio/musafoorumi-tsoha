@@ -37,6 +37,7 @@ CREATE TABLE Reviews (
 
 CREATE TABLE Comments (
     id SERIAL PRIMARY KEY,
+    comment TEXT,
     release_id INTEGER REFERENCES Releases,
     commenter_id INTEGER REFERENCES Users,
     timestamp TIMESTAMP);
