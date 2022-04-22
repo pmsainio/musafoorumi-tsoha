@@ -20,12 +20,33 @@ Henkilöstö:
 {% endfor %}
 </li>
 <hr>
+
 {% if session.username %}
 <p>Olet kirjautunut nimellä {{ session.username }}</p>
-<a href="/logout">Kirjaudu ulos</a>
-{% else %}
-<a href="/register"> Luo tunnus</a>  tai <a href="/login">kirjaudu sisään</a> kommentoidaksesi
+<form method="POST">
+    Keskustele julkaisusta: <br>
+    <textarea name="comment" rows="4" cols="50"></textarea>
+    <br>
+    <input type="submit" value="Lähetä">
+    </form>
 
+{% else %}
+<p> <a href="/register"> Luo tunnus</a>  tai <a href="/login">kirjaudu sisään</a> kommentoidaksesi </p>
 {% endif %}
-    <hr>
+
+{% for comment in comments %}
+
+<b>{{comment.name}}</b> <br>
+{{comment.comment}} <br>
+
+{% endfor %}
+
+<hr>
+
+{% if session.username %}
+<a href="/">Etusivulle</a> | <a href="/logout">Kirjaudu ulos</a>
+
+{% else %}
 <a href="/">Etusivulle</a>
+{% endif %}
+
