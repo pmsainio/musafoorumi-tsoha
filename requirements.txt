@@ -7,7 +7,6 @@ altgraph==0.17.2
 ansible==2.9.6
 apache-libcloud==2.8.0
 apptools==4.5.0
-apt-xapian-index==0.49
 apturl==0.5.2
 argcomplete==1.8.1
 asciitree==0.3.3
