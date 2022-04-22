@@ -47,19 +47,22 @@ def signup():
         return render_template("register.html")
     if request.method == "POST":
         username = request.form["username"]
-        password1 = request.form["password1"]
-        password2 = request.form["password2"]
-        if password1 != password2:
+        sql = "SELECT name, password FROM users WHERE name=:name"
+        result = db.session.execute(sql, {"name":username})
+        user = result.fetchone()    
+        if not user:
+            password1 = request.form["password1"]
+            password2 = request.form["password2"]
+            if password1 != password2:
+                return redirect("/")
+            hash_value = generate_password_hash(password1)
+            sql = "INSERT INTO Users (name, password) VALUES (:username, :password)"
+            db.session.execute(sql, {"username":username, "password":hash_value})
+            db.session.commit()
+            session["username"] = username
             return redirect("/")
-
-        print("kaikki ok1")
-        hash_value = generate_password_hash(password1)
-        sql = "INSERT INTO Users (name, password) VALUES (:username, :password)"
-        db.session.execute(sql, {"username":username, "password":hash_value})
-        print("kaikki ok2")
-        db.session.commit()
-        session["username"] = username
-        return redirect("/")
+        else:
+            return redirect("/")
         
 
 @app.route("/result", methods=["GET"])
@@ -70,16 +73,29 @@ def result():
     results = result.fetchall()
     return render_template("result.html", search=search, results=results)
 
-@app.route("/release/<name>")
+@app.route("/release/<name>", methods=["GET","POST"])
 def release(name):
-    sql = "SELECT name, performer FROM releases r WHERE r.name=:name"
-    releases = db.session.execute(sql, {"name":name})
-    sql = "SELECT t.listing, t.name FROM releases r, tracks t WHERE t.release_id = r.id AND r.name=:name"
-    tracks = db.session.execute(sql, {"name":name})
-    sql = "SELECT p.name, p.role FROM releases r, personnel p WHERE p.release_id = r.id AND r.name=:name"
-    personnel = db.session.execute(sql, {"name":name})
-    return render_template("release.html", release=name, releases=releases.fetchall(), tracks=tracks.fetchall(), personnel=personnel.fetchall())
+    if request.method == "GET":
+        sql = "SELECT name, performer FROM releases r WHERE r.name=:name"
+        releases = db.session.execute(sql, {"name":name})
+        sql = "SELECT t.listing, t.name FROM releases r, tracks t WHERE t.release_id = r.id AND r.name=:name"
+        tracks = db.session.execute(sql, {"name":name})
+        sql = "SELECT p.name, p.role FROM releases r, personnel p WHERE p.release_id = r.id AND r.name=:name"
+        personnel = db.session.execute(sql, {"name":name})
+        sql = "SELECT c.comment, u.name FROM Comments c, Releases r, Users u WHERE c.release_id = r.id AND u.id = c.commenter_id AND r.name=:name ORDER BY c.timestamp"
+        comments = db.session.execute(sql, {"name":name})
+        return render_template("release.html", release=name, releases=releases.fetchall(), tracks=tracks.fetchall(), personnel=personnel.fetchall(), comments=comments.fetchall())
 
+
+    if request.method == "POST":
+        comment = request.form["comment"]
+        release_id = db.session.execute("SELECT id FROM releases WHERE name=:name", {"name":name}).fetchone()[0]
+        username = session.get("username")
+        commenter_id = db.session.execute("SELECT id FROM Users WHERE name=:username", {"username":username}).fetchone()[0]
+        sql = "INSERT INTO Comments (comment, release_id, commenter_id, timestamp) VALUES (:comment, :release_id, :commenter_id, NOW())"
+        db.session.execute(sql, {"comment":comment, "release_id":release_id, "commenter_id":commenter_id})
+        db.session.commit()
+        return redirect("/release/" + name)
 
 @app.route("/artist/<name>")
 def artist(name):
