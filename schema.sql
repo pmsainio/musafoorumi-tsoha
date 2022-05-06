@@ -1,6 +1,7 @@
 drop TABLE if exists Tracks;
 drop TABLE if exists Personnel;
 drop TABLE if exists Releases;
+drop TABLE if exists Reviews;
 
 CREATE TABLE Releases (
     id SERIAL PRIMARY KEY,
@@ -31,7 +32,7 @@ CREATE TABLE Users (
 CREATE TABLE Reviews (
     id SERIAL PRIMARY KEY,
     reviewer_id INTEGER REFERENCES Users,
-    riviewee_id INTEGER REFERENCES Releases,
+    reviewee_id INTEGER REFERENCES Releases,
     score INTEGER
 );
 
