@@ -1,3 +1,8 @@
+{% extends "layout.html" %}
+{% block title %}Release Page{% endblock %}
+
+{% block content %}
+
 <title>{{release}}</title>
 <br>
 <b>{{release}}</b>
@@ -27,11 +32,36 @@ Henkilöstö:
     Keskustele julkaisusta: <br>
     <textarea name="comment" rows="4" cols="50"></textarea>
     <br>
+    <div class="error">
+        {{ error }} <br>
+    </div>
+    
     <input type="submit" value="Lähetä">
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
     </form>
 
+<form action="#">
+    Jätä arvio: <br>
+    <select name="grades" id="score">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="19">10</option>
+    </select> &#9733;
+    <input type="submit" value="Lähetä" />
+  </form>
+  
+</form>
 {% else %}
-<p> <a href="/register"> Luo tunnus</a>  tai <a href="/login">kirjaudu sisään</a> kommentoidaksesi </p>
+
+Sinun täytyy olla kirjautunut kommentoidaksesi tai jättääksesi arvion.
+<br> <br>
 {% endif %}
 
 {% for comment in comments %}
@@ -50,3 +80,4 @@ Henkilöstö:
 <a href="/">Etusivulle</a>
 {% endif %}
 
+{% endblock %}

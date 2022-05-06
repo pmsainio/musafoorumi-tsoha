@@ -1,3 +1,10 @@
+{% extends "layout.html" %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <form action="/register" method="POST">
     <p>Käyttäjätunnus:<br>
     <input type="text" name="username"></p>
@@ -5,5 +12,12 @@
     <input type="password" name="password1"></p>
     <p>Salasana uudestaan:<br>
         <input type="password" name="password2"></p>
+    
+        <div class="error">
+            {{ error }} <br>
+        </div>
+
     <input type="submit" value="Luo tunnus">
     </form>
+
+{% endblock %}

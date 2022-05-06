@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href={{ url_for('static', filename="layout.css") }}>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+
+    <div class="header">
+    <h1>Musafoorumi</h1>
+    </div>
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <div class="content">
+    {% block content %}{% endblock %}
+
+    {% block error %}{% endblock %}
+    <hr>
+
+    {% if session.username %}
+        <p>Olet kirjautunut nimellä {{ session.username }}</p>
+        <a href="/logout">Kirjaudu ulos</a>
+    {% else %}
+        <a href="/register"> Luo tunnus</a>  tai <a href="/login">kirjaudu sisään</a>
+    {% endif %}
+
+    <hr>
+
+    <a href="/">Etusivu</a>
+    </div>
+</body>

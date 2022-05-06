@@ -1,40 +1,31 @@
-<title>Etusivu</title>
+{% extends "layout.html" %}
+{% block title %}Etusivu{% endblock %}
 
-<b>Tervetuloa!</b>
+{% block content %}
 
-<form action="/result" method="GET">
+    
+    <b>Tervetuloa!</b>
+
+    <form action="/result" method="GET">
     Hae:
     <input type="text" name="search">
     <br>
     <input type="submit" value="Hae">
-</form>
+    </form>
 
-Esittäjät:
+    Esittäjät:
 
-{% for artist in artists %}
-<br>
-<a href="/artist/{{artist.performer}}">{{artist.performer}}</a>
-{% endfor %}
-<hr>
+    {% for artist in artists %}
+    <br>
+    <a href="/artist/{{artist.performer}}">{{artist.performer}}</a>
+    {% endfor %}
+    <hr>
 
-Julkaisut:
+    Julkaisut:
 
-{% for release in releases %}
-<br>
-<a href="/release/{{release.name}}">{{release.performer}} - {{release.name}}</a> ({{release.year}})
-{% endfor %}
+    {% for release in releases %}
+    <br>
+    <a href="/release/{{release.name}}">{{release.performer}} - {{release.name}}</a> ({{release.year}})
+    {% endfor %}
 
-<hr>
-
-{% if session.username %}
-<p>Olet kirjautunut nimellä {{ session.username }}</p>
-<a href="/logout">Kirjaudu ulos</a>
-{% else %}
-<a href="/register"> Luo tunnus</a>  tai <a href="/login">kirjaudu sisään</a>
-
-{% endif %}
-
-
-
-
-
+{% endblock %}

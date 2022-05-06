@@ -1,4 +1,7 @@
-<title>{{artist}}</title>
+{% extends "layout.html" %}
+{% block title %}Artist Page{% endblock %}
+
+{% block content %}
 
 <b>{{artist}}</b>
 
@@ -8,6 +11,5 @@
 {% endfor %}
 </li>
 
-<hr>
 
-<a href="/">Etusivulle</a>
+ {% endblock %}

@@ -1,0 +1,26 @@
+body {
+    margin: auto;
+    max-width: 50em;
+    font-family: 'Georgia', serif;
+    background: white;
+}
+
+.header {
+    background: wheat;
+    padding: 2em 1em;
+}
+
+.content {
+    background: bisque;
+    padding: 2em 1em;
+}
+
+.error {
+    color: red;
+}
+
+
+/* li {
+    display: inline-block;
+    vertical-align: top;
+} */

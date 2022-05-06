@@ -1,4 +1,8 @@
-<title>Hakutulos</title>
+{% extends "layout.html" %}
+{% block title %}Result{% endblock %}
+
+{% block content %}
+
 Tulokset haulla '{{search}}''
 <br>
 {% for result in results %}
@@ -8,3 +12,5 @@ Tulokset haulla '{{search}}''
 <br> 
 <hr>
 <a href="/">Etusivulle</a>
+
+{% endblock %}
