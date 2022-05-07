@@ -5,9 +5,7 @@ from os import getenv
 import users
 import releases
 
-
 app.secret_key = getenv("SECRET_KEY")
-
 
 @app.route("/")
 def index():

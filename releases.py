@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, session
+from flask import request, redirect, session
 from database import db
 
 def load_page(name):
@@ -14,7 +14,7 @@ def load_page(name):
     return releases, tracks, personnel, comments
 
 def load_average(name):
-    sql = "SELECT CAST(AVG(a.score) AS FLOAT) FROM Reviews a, Releases b WHERE a.reviewee_id = b.id AND b.name=:name"
+    sql = "SELECT CAST(AVG(a.score) AS FLOAT) FROM Reviews a, Releases b WHERE a.riviewee_id = b.id AND b.name=:name"
     average = db.session.execute(sql, {"name":name})
     average = average.fetchone()[0]
     return average
@@ -28,7 +28,7 @@ def load_score(name):
         return
     return score[0]
 
-def comment(name, score):
+def comment(name):
     comment = request.form["comment"]
     if comment == "":
         return
@@ -43,7 +43,7 @@ def comment(name, score):
 
 def review(name):
     score = request.form["score"]
-    comment(name, score)
+    comment(name)
     username = session.get("username")
     reviewer_id = db.session.execute("SELECT id FROM Users WHERE name=:username", {"username":username}).fetchone()[0]
     review_status = db.session.execute("SELECT a.reviewer_id FROM Reviews a, Releases b WHERE b.name=:name AND b.id = a.reviewee_id AND a.reviewer_id=:reviewer_id", {"name":name, "reviewer_id":reviewer_id}).fetchone()
