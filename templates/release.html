@@ -5,8 +5,17 @@
 
 <title>{{release}}</title>
 <br>
-<b>{{release}}</b>
-<br> 
+<b>{{release}}</b> 
+{% if average %}
+    <i>({{ average }} &#9733;)</i>
+    {% else %}
+       <i>(Ei arvioita)</i>
+{% endif %}  <br> 
+{% if session.username %}
+    {% if score %}
+        Oma arviosi: {{ score }} &#9733; <br>
+    {% endif %}
+{% endif %}
 
 {% for release in releases %}
 <a href="/artist/{{release.performer}}">{{release.performer}}</a>
@@ -29,6 +38,26 @@ Henkilöstö:
 {% if session.username %}
 <p>Olet kirjautunut nimellä {{ session.username }}</p>
 <form method="POST">
+    {% if score %}
+    Olet antanut arvioksi {{ score }} &#9733; <br> <br>
+    Arvioi uudelleen:
+    {% else %}
+    Jätä arvio:
+    {% endif %}
+    <select name="score" id="score">
+        <option value="None">Ei arviota</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="19">10</option>
+    </select> &#9733; <br>
+
     Keskustele julkaisusta: <br>
     <textarea name="comment" rows="4" cols="50"></textarea>
     <br>
@@ -40,24 +69,6 @@ Henkilöstö:
     <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
     </form>
 
-<form action="#">
-    Jätä arvio: <br>
-    <select name="grades" id="score">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="19">10</option>
-    </select> &#9733;
-    <input type="submit" value="Lähetä" />
-  </form>
-  
-</form>
 {% else %}
 
 Sinun täytyy olla kirjautunut kommentoidaksesi tai jättääksesi arvion.
@@ -67,17 +78,8 @@ Sinun täytyy olla kirjautunut kommentoidaksesi tai jättääksesi arvion.
 {% for comment in comments %}
 
 <b>{{comment.name}}</b> <br>
-{{comment.comment}} <br>
+{{comment.comment}} <br> <br>
 
 {% endfor %}
-
-<hr>
-
-{% if session.username %}
-<a href="/">Etusivulle</a> | <a href="/logout">Kirjaudu ulos</a>
-
-{% else %}
-<a href="/">Etusivulle</a>
-{% endif %}
 
 {% endblock %}

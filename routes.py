@@ -3,7 +3,7 @@ from flask import render_template, request, redirect, session
 from database import db
 from os import getenv
 import users
-import reviews
+import releases
 
 
 app.secret_key = getenv("SECRET_KEY")
@@ -47,32 +47,18 @@ def result():
     results = result.fetchall()
     return render_template("result.html", search=search, results=results)
 
-@app.route("/release/<name>", methods=["GET","POST"])
+@app.route("/release/<name>", methods=["GET","POST", "#"])
 def release(name):
     if request.method == "GET":
-        #print(session.username)
-        sql = "SELECT name, performer FROM Releases r WHERE r.name=:name"
-        releases = db.session.execute(sql, {"name":name})
-        #sql = "SELECT AVG(a.score) FROM Reviews a, Releases r WHERE a.reviewee_id = r.id AND r.name=:name"
-        #average = db.session.execute(sql, {"name":name})
-        #sql = "SELECT a.score FROM Reviews a, Users u, Releases r WHERE a.revievewer_id = u.id AND a.reviewee_id=r.id AND r.name=:name AND u.name=:username"
-        #personal_score = db.session.execute(sql, {"name":name, "username":session.username})
-        sql = "SELECT t.listing, t.name FROM Releases r, Tracks t WHERE t.release_id = r.id AND r.name=:name"
-        tracks = db.session.execute(sql, {"name":name})
-        sql = "SELECT p.name, p.role FROM Releases r, Personnel p WHERE p.release_id = r.id AND r.name=:name"
-        personnel = db.session.execute(sql, {"name":name})
-        sql = "SELECT c.comment, u.name FROM Comments c, Releases r, Users u WHERE c.release_id = r.id AND u.id = c.commenter_id AND r.name=:name ORDER BY c.timestamp"
-        comments = db.session.execute(sql, {"name":name})
-        return render_template("release.html", releases=releases.fetchall(), tracks=tracks.fetchall(), personnel=personnel.fetchall(), comments=comments.fetchall())
-
+        average = releases.load_average(name)
+        score = releases.load_score(name)
+        release, tracks, personnel, comments = releases.load_page(name)
+        return render_template("release.html", release=name, releases=release, tracks=tracks, personnel=personnel, comments=comments, average=average, score=score)
     if request.method == "POST":
         if session["csrf_token"] != request.form["csrf_token"]:
             return redirect("/release/" + name)
         else:
-            return reviews.comment(name)
-
-    if request.method == "#":
-        return reviews.review(name)
+            return releases.review(name)
 
 @app.route("/artist/<name>")
 def artist(name):

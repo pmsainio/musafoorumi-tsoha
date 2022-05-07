@@ -1,7 +1,6 @@
 drop TABLE if exists Tracks;
 drop TABLE if exists Personnel;
 drop TABLE if exists Releases;
-drop TABLE if exists Reviews;
 
 CREATE TABLE Releases (
     id SERIAL PRIMARY KEY,

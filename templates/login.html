@@ -1,19 +1,17 @@
-{% extends "layout.html" %}
-{% block title %}Login{% endblock %}
+<title>Login</title>
+<body>
+    <div class="content">
+    <form action="/login" method="POST">
+        <p>Käyttäjännus:<br>
+        <input type="text" name="username"></p>
+        <p>Salasana:<br>
+        <input type="password" name="password"></p>
 
-{% block content %}
-
-<form action="/login" method="POST">
-    <p>Käyttäjännus:<br>
-    <input type="text" name="username"></p>
-    <p>Salasana:<br>
-    <input type="password" name="password"></p>
-
-    <div class="error">
-        {{ error }} <br>
-    </div>
+        <div class="error">
+            {{ error }} <br>
+        </div>
     
     <input type="submit" value="Kirjaudu">
     </form>
-
-{% endblock %}
+    </div>
+</body>
