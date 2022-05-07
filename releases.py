@@ -14,7 +14,7 @@ def load_page(name):
     return releases, tracks, personnel, comments
 
 def load_average(name):
-    sql = "SELECT CAST(AVG(a.score) AS FLOAT) FROM Reviews a, Releases b WHERE a.riviewee_id = b.id AND b.name=:name"
+    sql = "SELECT CAST(AVG(a.score) AS FLOAT) FROM Reviews a, Releases b WHERE a.reviewee_id = b.id AND b.name=:name"
     average = db.session.execute(sql, {"name":name})
     average = average.fetchone()[0]
     return average
