@@ -16,7 +16,7 @@ def load_page(name):
 def load_average(name):
     sql = "SELECT CAST(AVG(a.score) AS FLOAT) FROM Reviews a, Releases b WHERE a.reviewee_id = b.id AND b.name=:name"
     average = db.session.execute(sql, {"name":name})
-    if average == "None":
+    if average == None:
         return average
     average = round(average.fetchone()[0], 2)
     return average
