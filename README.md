@@ -10,7 +10,7 @@ Julkaisun sivulla näkee artistin, raidat ja henkilöstön. Jokaisella henkilös
 
 Kaikki polut on toteutettu routes.py-tiedostoon. Kirjautumiseen ja rekisteröitymiseen liittyvä koodi on users.py-tiedostossa. Release-sivujen arvosanoihin ja kommentteihin liittyvä koodi on reviews.py-tiedostossa. Kirjautumista ja rekisteröitymistä lukuun ottamatta joka sivun html-pohja rakentuu layout.html-tiedoston jatkeena. 
 
-SQL-tiedostoja on kaksi: toisessa on pohjat taulukoille, ja toisessa puolestaan julkaisujen tietokanta. Toistaiseksi uuden julkaisujen lisääminen tietokantaan on tehtävä manuaalisesti. Schema.sql-tiedosto nollaa julkaisutietokannan aina aktivoidessa. Tämän ansiosta kirjoitusvirheiden korjaukset sekä julkaisujen lisäykset tai poistot päivittyvät automaattisesti.
+SQL-tiedostoja on kaksi: toisessa on pohjat taulukoille, ja toisessa puolestaan julkaisujen tietokanta. Toistaiseksi uuden julkaisun lisääminen tietokantaan on tehtävä manuaalisesti. Schema.sql-tiedosto nollaa julkaisutietokannan aina aktivoidessa. Tämän ansiosta kirjoitusvirheiden korjaukset sekä julkaisujen lisäykset tai poistot päivittyvät automaattisesti.
 
 ### Toiminnallisuus:
 
