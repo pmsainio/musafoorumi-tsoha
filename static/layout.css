@@ -19,8 +19,6 @@ body {
     color: red;
 }
 
-
-/* li {
-    display: inline-block;
-    vertical-align: top;
-} */
+textarea {
+    resize:none;
+}
