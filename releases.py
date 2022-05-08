@@ -44,15 +44,18 @@ def comment(name):
 def review(name):
     score = request.form["score"]
     comment(name)
-    username = session.get("username")
-    reviewer_id = db.session.execute("SELECT id FROM Users WHERE name=:username", {"username":username}).fetchone()[0]
-    review_status = db.session.execute("SELECT a.reviewer_id FROM Reviews a, Releases b WHERE b.name=:name AND b.id = a.reviewee_id AND a.reviewer_id=:reviewer_id", {"name":name, "reviewer_id":reviewer_id}).fetchone()
-    if review_status == None:
-        reviewee_id = db.session.execute("SELECT id FROM releases WHERE name=:name", {"name":name}).fetchone()[0]
-        sql = "INSERT INTO Reviews(reviewer_id, reviewee_id, score) VALUES (:reviewer_id, :reviewee_id, :score)"
-        db.session.execute(sql, {"reviewer_id":reviewer_id, "reviewee_id":reviewee_id, "score":score})
+    if score == None:
+        return redirect("/release/" + name)
     else:
-        sql = "UPDATE Reviews SET score=:score WHERE reviewer_id=:reviewer_id"
-        db.session.execute(sql, {"score":score, "reviewer_id":reviewer_id})
-    db.session.commit()
-    return redirect("/release/" + name)
+        username = session.get("username")
+        reviewer_id = db.session.execute("SELECT id FROM Users WHERE name=:username", {"username":username}).fetchone()[0]
+        review_status = db.session.execute("SELECT a.reviewer_id FROM Reviews a, Releases b WHERE b.name=:name AND b.id = a.reviewee_id AND a.reviewer_id=:reviewer_id", {"name":name, "reviewer_id":reviewer_id}).fetchone()
+        if review_status == None:
+            reviewee_id = db.session.execute("SELECT id FROM releases WHERE name=:name", {"name":name}).fetchone()[0]
+            sql = "INSERT INTO Reviews(reviewer_id, reviewee_id, score) VALUES (:reviewer_id, :reviewee_id, :score)"
+            db.session.execute(sql, {"reviewer_id":reviewer_id, "reviewee_id":reviewee_id, "score":score})
+        else:
+            sql = "UPDATE Reviews SET score=:score WHERE reviewer_id=:reviewer_id"
+            db.session.execute(sql, {"score":score, "reviewer_id":reviewer_id})
+        db.session.commit()
+        return redirect("/release/" + name)
