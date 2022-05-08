@@ -40,7 +40,8 @@ def signup():
 @app.route("/result", methods=["GET"])
 def result():
     search = request.args["search"]
-    sql = "SELECT performer, name, year FROM Releases WHERE UPPER(performer) LIKE UPPER(:search) OR UPPER(name) LIKE UPPER(:search) ORDER BY year"
+    sql = "SELECT performer, name, year FROM Releases WHERE UPPER(performer) \
+            LIKE UPPER(:search) OR UPPER(name) LIKE UPPER(:search) ORDER BY year"
     result = db.session.execute(sql, {"search":"%"+search+"%"})
     results = result.fetchall()
     return render_template("result.html", search=search, results=results)
@@ -51,7 +52,13 @@ def release(name):
         average = releases.load_average(name)
         score = releases.load_score(name)
         release, tracks, personnel, comments = releases.load_page(name)
-        return render_template("release.html", release=name, releases=release, tracks=tracks, personnel=personnel, comments=comments, average=average, score=score)
+        return render_template("release.html", release=name, \
+                                                releases=release,\
+                                                tracks=tracks, \
+                                                personnel=personnel, \
+                                                comments=comments, \
+                                                average=average, \
+                                                score=score)
     if request.method == "POST":
         if session["csrf_token"] != request.form["csrf_token"]:
             return redirect("/release/" + name)
@@ -66,7 +73,8 @@ def artist(name):
 
 @app.route("/contributor/<name>")
 def contr(name):
-    sql = "SELECT r.name, p.role from releases r, personnel p WHERE p.name=:name and p.release_id = r.id"
+    sql = "SELECT r.name, p.role from releases r, personnel p \
+            WHERE p.name=:name and p.release_id = r.id"
     personnel = db.session.execute(sql, {"name":name})
     return render_template("contributor.html", person=name, personnel=personnel.fetchall())
 
