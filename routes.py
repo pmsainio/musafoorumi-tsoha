@@ -53,6 +53,8 @@ def release(name):
         release, tracks, personnel, comments = releases.load_page(name)
         return render_template("release.html", release=name, releases=release, tracks=tracks, personnel=personnel, comments=comments, average=average, score=score)
     if request.method == "POST":
+        print(session["csrf_token"])
+        print(request.form["csrf_token"])
         if session["csrf_token"] != request.form["csrf_token"]:
             return redirect("/release/" + name)
         else:

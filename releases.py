@@ -44,7 +44,7 @@ def comment(name):
 def review(name):
     score = request.form["score"]
     comment(name)
-    if score == None:
+    if score == "None":
         return redirect("/release/" + name)
     else:
         username = session.get("username")
