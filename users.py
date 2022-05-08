@@ -24,6 +24,7 @@ def create_user():
         db.session.execute(sql, {"username":username, "password":hash_value})
         db.session.commit()
         session["username"] = username
+        session["csrf_token"] = secrets.token_hex(16)
         return redirect("/")
     else:
         return render_template("register.html", error="Käyttäjänimi on varattu.")
