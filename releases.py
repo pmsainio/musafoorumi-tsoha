@@ -19,7 +19,7 @@ def load_average(name):
     average = average.fetchone()
     if average == None:
         return average
-    average = round([0], 2)
+    average = round(average[0], 2)
     return average
 
 def load_score(name):
